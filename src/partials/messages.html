@@ -1,0 +1,12 @@
+<div data-ng-show="main.page.messages">
+  <div data-ng-repeat="(type, messages) in main.page.messages" role="alert" class="alert alert-dismissible alert-{{type}}">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <ul>
+      <span data-ng-repeat="(key, errs) in messages">
+        <li data-ng-repeat="err in errs">{{err}}</li>
+      </span>
+    </ul>
+  </div>
+</div>

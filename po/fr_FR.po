@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: login.html:25
+msgid "Log in"
+msgstr "Se connecter"
+
+#: core.js:14
+msgid "Login in"
+msgstr "Connexion"
+
+#: login.html:15 login.html:21
+msgid "Password"
+msgstr "Mot de passe"
+
+#: login.html:10 login.html:4
+msgid "Username"
+msgstr "Nom utilisateur"

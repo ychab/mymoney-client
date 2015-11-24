@@ -1,0 +1,11 @@
+<div data-ng-show="main.page.actions" class="action-links pull-right dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-plus"></span> <span translate>Actions</span> <b class="caret"></b>
+  </a>
+
+  <ul class="dropdown-menu">
+    <li data-ng-repeat="action in main.page.actions">
+      <a data-ng-href="#{{action.path}}" >{{action.text}}</a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,26 @@
+<form novalidate data-ng-submit="login.authenticate(username, password)">
+
+  <div data-ng-class="{'form-group': true, 'has-error': main.page.messages.danger['username']}">
+    <label class="control-label sr-only" for="username" translate>Username</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-user"></span>
+        <span class="required">*</span>
+      </span>
+      <input type="text" class="form-control" data-ng-model="username" id="username" placeholder="{{'Username' | translate}}" required />
+    </div>
+  </div>
+
+  <div data-ng-class="{'form-group': true, 'has-error': main.page.messages.danger['password']}">
+    <label class="control-label sr-only" for="password" translate>Password</label>
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-lock"></span>
+        <span class="required">*</span>
+      </span>
+      <input type="password" class="form-control" data-ng-model="password" id="password" placeholder="{{'Password' | translate}}" required />
+    </div>
+  </div>
+
+  <input class="btn btn-primary" type="submit" value="{{'Log in' | translate}}" />
+</form>

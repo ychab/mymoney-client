@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+
+#: login.html:25
+msgid "Log in"
+msgstr ""
+
+#: core.js:14
+msgid "Login in"
+msgstr ""
+
+#: login.html:15
+#: login.html:21
+msgid "Password"
+msgstr ""
+
+#: login.html:10
+#: login.html:4
+msgid "Username"
+msgstr ""

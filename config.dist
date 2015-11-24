@@ -1,0 +1,10 @@
+var config = function() {
+
+  this.sourcemap = [
+    
+  ];
+
+  this.backend_path = '';
+};
+
+module.exports = config
