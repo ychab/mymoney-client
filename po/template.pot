@@ -4,17 +4,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: menu_actions.html:3
+msgid "Actions"
+msgstr ""
+
+#: menu_primary.html:8
+msgid "All bank accounts"
+msgstr ""
+
 #: login.html:25
 msgid "Log in"
 msgstr ""
 
-#: core.js:14
+#: menu_user.html:9
+msgid "Log out"
+msgstr ""
+
+#: user/user.js:13
 msgid "Login in"
+msgstr ""
+
+#: menu_primary.html:4
+msgid "My bank accounts"
+msgstr ""
+
+#: menu_primary.html:21
+msgid "My tags"
 msgstr ""
 
 #: login.html:15
 #: login.html:21
 msgid "Password"
+msgstr ""
+
+#: menu_primary.html:17
+msgid "Tags"
 msgstr ""
 
 #: login.html:10

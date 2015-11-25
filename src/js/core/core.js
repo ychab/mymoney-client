@@ -32,10 +32,10 @@
     User.get().$promise
       .then(function(user) {
         if (user.bankaccounts.length === 1) {
-          // $location.path('/bankaccounts/' + user.bankaccounts[0]['id']);
+          // TODO - $location.path('/bankaccounts/' + user.bankaccounts[0]['id']);
           $location.path('/home');
         } else {
-          // $location.path('/bankaccounts');
+          // TODO - $location.path('/bankaccounts');
           $location.path('/home');
         }
       })

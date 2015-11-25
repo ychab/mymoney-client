@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     util = require('gulp-util'),
     gettext = require('gulp-angular-gettext'),
-    ngAnnotate = require('gulp-ng-annotate');
+    ngAnnotate = require('gulp-ng-annotate'),
+    config = require('./config.js');
 
 gulp.task('jshint', function() {
   return gulp.src('src/js/**/*.js')
@@ -14,33 +15,22 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('annotate', function() {
-  return gulp.src([
-      'src/js/**/*.js',  // TODO - explicit filename and order
-    ])
+  return gulp.src(config.sourcemap.mymoney)
     .pipe(concat('app.mymoney.js'))
-    .pipe(ngAnnotate())
+    .pipe(ngAnnotate({single_quotes: true}))
     .pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('js', ['jshint', 'annotate'], function () {
-  var map = [
-    'bower_components/angular/angular.js',
-    'bower_components/angular-route/angular-route.js',
-    'bower_components/angular-resource/angular-resource.js',
-    'bower_components/angular-gettext/dist/angular-gettext.js',
-    'bower_components/jquery/jquery.js',
-    'bower_components/bootstrap/dist/js/bootstrap.js',
-    'bower_components/underscore/underscore.js',
-    'bower_components/moment/moment.js',
-    'bower_components/bootstrap-calendar/js/calendar.js',
-    'bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
-    'bower_components/chartjs/Chart.js',
-    // "dist/js/src.mymoney.js", TODO - exclude it for dev now
-  ];
-  gulp.src(map)
+  var sourcemap = config.sourcemap.vendor;
+  sourcemap = sourcemap.concat([
+    'dist/js/app.mymoney.js'
+  ]);
+
+  gulp.src(sourcemap)
     .pipe(concat('mymoney.js'))
     .pipe(gulp.dest('dist/js/'));
-  gulp.src(map)
+  gulp.src(sourcemap)
     .pipe(concat('mymoney.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/js/'));
@@ -48,16 +38,16 @@ gulp.task('js', ['jshint', 'annotate'], function () {
   if (util.env.locale) {
     var lang = util.env.locale.split('_')[0].toLowerCase();
     var languageCode = util.env.locale.replace('_', '-');
-    map = [
+    sourcemap = [
       'bower_components/bootstrap-calendar/js/language/' + languageCode + '.js',
       'bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.' + lang + '.js',
       'bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.' + languageCode + '.js',
-      'src/locales/" + util.env.locale + ".js'
+      'src/locales/' + util.env.locale + '.js'
     ];
-    gulp.src(map)
+    gulp.src(sourcemap)
       .pipe(concat(util.env.locale + '.js'))
       .pipe(gulp.dest('dist/js/locales/'));
-    gulp.src(map)
+    gulp.src(sourcemap)
       .pipe(concat(util.env.locale + '.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest('dist/js/locales/'));
@@ -71,12 +61,6 @@ gulp.task('css', function () {
   .pipe(concat('mymoney.min.css'))
   .pipe(minifyCss())
   .pipe(gulp.dest('dist/css/'));
-});
-
-gulp.task('watch', function () {
-  // FIXME - environment variables are not persistent.
-  gulp.watch(['src/js/*'], ['js']);
-  gulp.watch(['src/css/*'], ['css']);
 });
 
 gulp.task('pot', function () {
@@ -94,6 +78,16 @@ gulp.task('translations', function () {
   )
   .pipe(gettext.compile())
   .pipe(gulp.dest('src/locales/'));
+});
+
+gulp.task('watch', function () {
+  // Be careful, environment variable are not persistent (locale flag ignored).
+  gulp.watch(['src/js/*'], ['js']);
+  gulp.watch(['src/css/*'], ['css']);
+  gulp.watch([
+    'src/partials/**/*.html',
+    'src/js/**/*.js',
+  ], ['pot']);
 });
 
 gulp.task('default', ['js', 'css']);

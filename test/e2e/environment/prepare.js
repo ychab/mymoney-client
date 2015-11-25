@@ -1,9 +1,10 @@
 var q = require('q'),
-    PythonShell = require('python-shell');
+    PythonShell = require('python-shell'),
+    config = require('../../../config.js');
 
 PythonShell.defaultOptions = {
   mode: 'text',
-  scriptPath: '../../../'  // TODO - UPDATE IT
+  scriptPath: config.backendPath
 };
 
 function setUp() {

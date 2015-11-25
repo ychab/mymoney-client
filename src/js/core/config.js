@@ -34,17 +34,6 @@
         template: '',
         controller: 'LogoutCtrl',
       })
-      // Bank accounts
-      .when('/bankaccounts', {
-        templateUrl: SETTINGS.TEMPLATES_URL + 'bankaccounts/list.html',
-        controller: 'BankAccountListCtrl',
-        controllerAs: 'bankAccountList'
-      })
-      .when('/bankaccounts/:bankaccountId', {
-        templateUrl: SETTINGS.TEMPLATES_URL + 'bankaccounts/detail.html',
-        controller: 'BankAccountDetailCtrl',
-        controllerAs: 'bankAccountDetail'
-      })
       .otherwise({
         redirectTo: '/home'
       });
