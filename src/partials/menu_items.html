@@ -1,0 +1,5 @@
+<ul data-ng-show="main.page.items" class="nav nav-pills">
+  <li data-ng-repeat="link in main.page.items" data-ng-class="{'active': link.active}">
+    <a data-ng-href="#{{ link.path }}">{{ link.text|translate }}</a>
+  </li>
+</ul>

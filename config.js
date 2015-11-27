@@ -34,10 +34,20 @@ var Config = function () {
         'src/js/core/core.js',
         'src/js/user/user.module.js',
         'src/js/user/user.js',
-        'src/js/user/services.js'
+        'src/js/user/services.js',
+        'src/js/bankaccounts/bankaccounts.module.js',
+        'src/js/bankaccounts/services.js',
+        'src/js/bankaccounts/bankaccounts.js'
     ]
   };
+  this.XSRFCookieName = 'csrftoken';
+  this.nonFieldErrorsKey = 'non_field_errors';
+
+  // Should be overriden.
   this.backendPath = '../mymoney-server';
+  this.templatePath = '/static/mymoney/src/partials/';
+  this.debug = false;
+  this.locale = 'en_US';
 };
 
 var config = new Config();

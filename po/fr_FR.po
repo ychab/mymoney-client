@@ -1,28 +1,188 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.8.5\n"
 "Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Team: \n"
 "Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: login.html:25
+#: pager.html:12
+msgid "(current)"
+msgstr "(actuel)"
+
+#: bankaccounts/bankaccounts.js:52
+msgid "{{label}}"
+msgstr ""
+
+#: bankaccounts/detail.html:48 menu_actions.html:3
+msgid "Actions"
+msgstr "Actions"
+
+#: bankaccounts/bankaccounts.js:17
+msgid "Add"
+msgstr "Ajouter"
+
+#: bankaccounts/bankaccounts.js:61
+msgid "Add a bank transaction"
+msgstr "Ajouter un compte bancaire"
+
+#: menu_primary.html:8
+msgid "All bank accounts"
+msgstr "Tous les comptes bancaires"
+
+#: bankaccounts/create.html:9
+msgid "Balance initial"
+msgstr "Solde initial"
+
+#: bankaccounts/bankaccounts.js:12
+msgid "Bank accounts"
+msgstr "Comptes bancaires"
+
+#: core/services.js:76
+msgid "Calendar view"
+msgstr "Vue calendrier"
+
+#: bankaccounts/bankaccounts.js:29
+msgid "Create a new bank account"
+msgstr "Créer un nouveau compte bancaire"
+
+#: bankaccounts/detail.html:40
+msgid "Credit"
+msgstr "Crédit"
+
+#: bankaccounts/create.html:15
+msgid "Currency"
+msgstr "Devise"
+
+#: bankaccounts/detail.html:11
+msgid "Current balance :"
+msgstr "Solde actuel"
+
+#: bankaccounts/detail.html:36
+msgid "Date"
+msgstr "Date"
+
+#: bankaccounts/detail.html:39
+msgid "Debit"
+msgstr "Débit"
+
+#: bankaccounts/bankaccounts.js:67
+msgid "Delete the bank account"
+msgstr "Supprimer le compte bancaire"
+
+#: core/services.js:44
+msgid "Edit"
+msgstr "Modifier"
+
+#: bankaccounts/detail.html:15
+msgid "Future balance :"
+msgstr "Solde futur :"
+
+#: bankaccounts/detail.html:19
+msgid "Initial balance :"
+msgstr "Solde initial :"
+
+#: bankaccounts/create.html:4 bankaccounts/detail.html:37
+msgid "Label"
+msgstr "Libellé"
+
+#: login.html:25 user/user.js:12
 msgid "Log in"
 msgstr "Se connecter"
 
-#: core.js:14
-msgid "Login in"
-msgstr "Connexion"
+#: menu_user.html:9
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: bankaccounts/detail.html:47
+msgid "Memo"
+msgstr "Mémo"
+
+#: menu_primary.html:4
+msgid "My bank accounts"
+msgstr "Mes comptes bancaires"
+
+#: menu_primary.html:21
+msgid "My tags"
+msgstr "Mes étiquettes"
+
+#: pager.html:16
+msgid "Next"
+msgstr "Suivant"
+
+#: bankaccounts/detail.html:43
+msgid "Paid with"
+msgstr "Payé avec"
 
 #: login.html:15 login.html:21
 msgid "Password"
 msgstr "Mot de passe"
+
+#: pager.html:6
+msgid "Previous"
+msgstr "Précédent"
+
+#: bankaccounts/detail.html:38
+msgid "Reconciled"
+msgstr "Rapproché"
+
+#: bankaccounts/detail.html:42
+msgid "Reconciled balance"
+msgstr "Solde rapproché"
+
+#: bankaccounts/detail.html:7
+msgid "Reconciled balance :"
+msgstr "Solde rapproché :"
+
+#: core/services.js:53
+msgid "Schedule"
+msgstr "Planification"
+
+#: bankaccounts/detail.html:45
+msgid "Scheduled"
+msgstr "Planifié"
+
+#: core/services.js:35
+msgid "See"
+msgstr "Voir"
+
+#: core/services.js:59
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: bankaccounts/detail.html:44
+msgid "Status"
+msgstr "Statut"
+
+#: core/services.js:71
+msgid "Table view"
+msgstr "Vue tableau"
+
+#: bankaccounts/detail.html:46 menu_primary.html:17
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: bankaccounts/bankaccounts.js:34
+msgid "The bank account has been created successfully."
+msgstr "Le compte bancaire a été crée avec succès."
+
+#: bankaccounts/create.html:11
+msgid "The initial balance will automatically update the balance."
+msgstr "Le solde initial va automatiquement mettre à jour le solde."
+
+#: bankaccounts/list.html:6
+msgid "There is no bank account yet."
+msgstr "Il n'y a aucun compte bancaire."
+
+#: bankaccounts/detail.html:41
+msgid "Total balance"
+msgstr "Solde total"
 
 #: login.html:10 login.html:4
 msgid "Username"

@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('mymoney.user', [
-    'mymoney.core',
+    'mymoney.core'
   ]);
 
 })();

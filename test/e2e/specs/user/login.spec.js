@@ -8,7 +8,7 @@ describe('Login', function() {
     auth.logout();
   });
 
-  xit('redirect anonymous on login page', function() {
+  it('redirect anonymous on login page', function() {
     browser.get('#/bankaccounts');
     var url = browser.getLocationAbsUrl();
     expect(url).toMatch(/login$/);
@@ -25,14 +25,14 @@ describe('Login', function() {
     expect(messages.count()).toEqual(1);
   });
 
-  xit('display menu primary on login success', function() {
+  it('display menu primary on login success', function() {
     var menuPrimary = element(by.id('menu_primary'));
     expect(menuPrimary.isDisplayed()).toBeFalsy();
     auth.login();
     expect(menuPrimary.isDisplayed()).toBeTruthy();
   });
 
-  xit('display menu user on login success', function() {
+  it('display menu user on login success', function() {
     var menuUser = element(by.id('menu_user'));
     expect(menuUser.isDisplayed()).toBeFalsy();
     auth.login();
@@ -40,16 +40,11 @@ describe('Login', function() {
   });
 
   xit('redirect user on bank account page if there is only one bank account', function() {
+    // TODO
   });
 
   xit('redirect user on bank account list page if there is more than one bank account', function() {
-  });
-
-  it('redirect user on login page after beeing logout', function() {
-    auth.login();
-    auth.logout();
-    var url = browser.getLocationAbsUrl();
-    expect(url).toMatch(/login$/);
+    // TODO
   });
 
 });

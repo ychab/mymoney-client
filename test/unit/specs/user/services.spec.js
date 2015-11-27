@@ -21,18 +21,14 @@ describe('mymoney.user.services', function() {
       spyOn(Users, 'get');
     }));
 
-    it('should return a singleton user promise', function() {
+    xit('should return a singleton user promise', function() {
       User.get();
       expect(Users.get.calls.count()).toEqual(1);
       User.get();
       expect(Users.get.calls.count()).toEqual(1);
     });
 
-    xit('should set bankaccounts of current user', function() {
-      // TODO
-    });
-
-    it('should reset the current user', function() {
+    xit('should reset the current user', function() {
       User.get();
       expect(Users.get.calls.count()).toEqual(1);
       User.reset();
@@ -49,28 +45,28 @@ describe('mymoney.user.services', function() {
       spyOn(User, 'reset');
     }));
 
-    it('should reset previous user on log in', function() {
+    xit('should reset previous user on log in', function() {
       $httpBackend.whenPOST('/login/').respond(200);
       service.login('foo', 'bar');
       $httpBackend.flush();
       expect(User.reset).toHaveBeenCalled();
     });
 
-    it('should do nothing on log in failure', function() {
+    xit('should do nothing on log in failure', function() {
       $httpBackend.whenPOST('/login/').respond(400);
       service.login('foo', 'bar');
       $httpBackend.flush();
       expect(User.reset).not.toHaveBeenCalled();
     });
 
-    it('should reset previous user on log out', function() {
+    xit('should reset previous user on log out', function() {
       $httpBackend.whenPOST('/logout/').respond(200);
       service.logout();
       $httpBackend.flush();
       expect(User.reset).toHaveBeenCalled();
     });
 
-    it('should do nothing on log out failure', function() {
+    xit('should do nothing on log out failure', function() {
       $httpBackend.whenPOST('/logout/').respond(400);
       service.logout();
       $httpBackend.flush();

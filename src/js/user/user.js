@@ -6,20 +6,18 @@
     .controller('LoginCtrl', LoginCtrl)
     .controller('LogoutCtrl', LogoutCtrl);
 
-  function LoginCtrl($location, gettextCatalog, Authentication, Page) {
+  function LoginCtrl($location, gettext, Authentication, Page) {
     var vm = this;
     vm.authenticate = authenticate;
-
-    Page.title = gettextCatalog.getString('Login in');
+    Page.setTitle(gettext('Log in'));
 
     function authenticate(username, password) {
 
       Authentication.login(username, password).then(function() {
-        Page.messages = null;
         $location.path('/home');
 
       }).catch(function(response){
-        Page.messages = {danger: response.data};
+        Page.addMessages(response.data, 'danger');
       });
     }
   }

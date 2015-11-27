@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     gettext = require('gulp-angular-gettext'),
     ngAnnotate = require('gulp-ng-annotate'),
+    templateCache = require('gulp-angular-templatecache'),
+    fs = require('fs'),
     config = require('./config.js');
 
 gulp.task('jshint', function() {
@@ -14,22 +16,41 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('annotate', function() {
-  return gulp.src(config.sourcemap.mymoney)
-    .pipe(concat('app.mymoney.js'))
-    .pipe(ngAnnotate({single_quotes: true}))
-    .pipe(gulp.dest('dist/js/'));
+gulp.task('config', function() {
+  var path = ['build', 'build/js'];
+  for (var i = 0; i < path.length; i++) {
+    try {
+      fs.statSync(path[i]);
+    } catch (err) {
+      fs.mkdirSync(path[i]);
+    }
+  }
+  var content = 'var MyMoneyConfig = ' + JSON.stringify(config, null, 2) + ';\n';
+  fs.writeFileSync('build/js/config.js', content);
 });
 
-gulp.task('js', ['jshint', 'annotate'], function () {
-  var sourcemap = config.sourcemap.vendor;
-  sourcemap = sourcemap.concat([
-    'dist/js/app.mymoney.js'
-  ]);
+gulp.task('app', ['config', 'templatecache'], function() {
+  var map = ['build/js/config.js'];
+  map = map.concat(config.sourcemap.mymoney);
+  map = map.concat(['build/js/templates.js']);
 
-  gulp.src(sourcemap)
-    .pipe(concat('mymoney.js'))
-    .pipe(gulp.dest('dist/js/'));
+  return gulp.src(map)
+    .pipe(concat('app.js'))
+    .pipe(ngAnnotate({single_quotes: true}))
+    .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('vendor', function() {
+  return gulp.src(config.sourcemap.vendor)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('js', ['jshint', 'vendor', 'app', 'translations'], function () {
+  var sourcemap = [
+    'build/js/vendor.js',
+    'build/js/app.js'
+  ];
   gulp.src(sourcemap)
     .pipe(concat('mymoney.min.js'))
     .pipe(uglify())
@@ -42,11 +63,11 @@ gulp.task('js', ['jshint', 'annotate'], function () {
       'bower_components/bootstrap-calendar/js/language/' + languageCode + '.js',
       'bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.' + lang + '.js',
       'bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.' + languageCode + '.js',
-      'src/locales/' + util.env.locale + '.js'
+      'build/js/locales/' + util.env.locale + '.js'
     ];
     gulp.src(sourcemap)
       .pipe(concat(util.env.locale + '.js'))
-      .pipe(gulp.dest('dist/js/locales/'));
+      .pipe(gulp.dest('build/js/locales/'));
     gulp.src(sourcemap)
       .pipe(concat(util.env.locale + '.min.js'))
       .pipe(uglify())
@@ -56,7 +77,7 @@ gulp.task('js', ['jshint', 'annotate'], function () {
 
 gulp.task('css', function () {
   return gulp.src([
-    'src/css/styles.css',
+    'src/css/styles.css'
   ])
   .pipe(concat('mymoney.min.css'))
   .pipe(minifyCss())
@@ -66,7 +87,7 @@ gulp.task('css', function () {
 gulp.task('pot', function () {
   return gulp.src([
     'src/partials/**/*.html',
-    'src/js/**/*.js',
+    'src/js/**/*.js'
   ])
   .pipe(gettext.extract('template.pot'))
   .pipe(gulp.dest('po/'));
@@ -77,17 +98,26 @@ gulp.task('translations', function () {
     'po/**/*.po'
   )
   .pipe(gettext.compile())
-  .pipe(gulp.dest('src/locales/'));
+  .pipe(gulp.dest('build/js/locales'));
+});
+
+gulp.task('templatecache', function () {
+  return gulp.src(
+    'src/partials/**/*.html'
+    )
+    .pipe(templateCache('templates.js', {
+      module: 'mymoney.core',
+      standalone: false,
+      root: config.templatePath
+    }))
+    .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('watch', function () {
   // Be careful, environment variable are not persistent (locale flag ignored).
-  gulp.watch(['src/js/*'], ['js']);
-  gulp.watch(['src/css/*'], ['css']);
-  gulp.watch([
-    'src/partials/**/*.html',
-    'src/js/**/*.js',
-  ], ['pot']);
+  gulp.watch(['src/js/*/**.js'], ['js', 'pot']);
+  gulp.watch(['src/css/*/**.css'], ['css']);
+  gulp.watch(['src/partials/**/*.html'], ['pot', 'templatecache', 'js']);
 });
 
 gulp.task('default', ['js', 'css']);

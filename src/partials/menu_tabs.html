@@ -1,0 +1,8 @@
+<ul data-ng-show="main.page.tabs" class="nav nav-tabs">
+  <li data-ng-repeat="link in main.page.tabs" data-ng-class="{'active': link.active}" >
+    <a data-ng-href="#{{ link.path }}">
+      <span class="glyphicon glyphicon-{{ link.glyphicon }}"></span>
+      {{ link.text|translate }}
+    </a>
+  </li>
+</ul>

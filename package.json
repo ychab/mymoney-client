@@ -20,7 +20,8 @@
     "gulp-uglify": "1.4.2",
     "gulp-util": "3.0.7",
     "gulp-ng-annotate": "1.1.0",
-    "gulp-angular-gettext": "2.1.0"
+    "gulp-angular-gettext": "2.1.0",
+    "gulp-angular-templatecache": "1.8.0"
   },
   "scripts": {
     "postinstall": "bower install",

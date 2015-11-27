@@ -3,7 +3,8 @@
 
   angular.module('mymoney', [
     'mymoney.core',
-    'mymoney.user'
+    'mymoney.user',
+    'mymoney.bankaccounts'
   ]);
 
 })();

@@ -5,7 +5,7 @@
     </button>
     <ul>
       <span data-ng-repeat="(key, errs) in messages">
-        <li data-ng-repeat="err in errs">{{err}}</li>
+        <li data-ng-repeat="err in errs">{{ err|translate }}</li>
       </span>
     </ul>
   </div>

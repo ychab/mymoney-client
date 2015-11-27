@@ -7,15 +7,20 @@
     .controller('NavbarCtrl', NavbarCtrl)
     .controller('HomeCtrl', HomeCtrl);
 
-  function MainCtrl(SETTINGS, Page, User) {
+  function MainCtrl($log, SETTINGS, Config, Page, User) {
     var vm = this;
+    vm.config = Config;
     vm.page = Page;
     vm.user = User.get;
     vm.templates = {
       breadcrumb: SETTINGS.TEMPLATES_URL + 'breadcrumb.html',
+      menuActions: SETTINGS.TEMPLATES_URL + 'menu_actions.html',
+      menuTabs: SETTINGS.TEMPLATES_URL + 'menu_tabs.html',
+      menuItems: SETTINGS.TEMPLATES_URL + 'menu_items.html',
       messages: SETTINGS.TEMPLATES_URL + 'messages.html',
       navbar: SETTINGS.TEMPLATES_URL + 'navbar.html'
     };
+    vm.$log = $log;
   }
 
   function NavbarCtrl(SETTINGS) {
@@ -32,11 +37,9 @@
     User.get().$promise
       .then(function(user) {
         if (user.bankaccounts.length === 1) {
-          // TODO - $location.path('/bankaccounts/' + user.bankaccounts[0]['id']);
-          $location.path('/home');
+          $location.path('/bankaccounts/' + user.bankaccounts[0]['id']);
         } else {
-          // TODO - $location.path('/bankaccounts');
-          $location.path('/home');
+          $location.path('/bankaccounts/list');
         }
       })
       .catch(function() {

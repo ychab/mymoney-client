@@ -18,18 +18,18 @@
 
     return {
       get: get,
-      reset: reset,
+      reset: reset
     };
 
     function get() {
-
       if (user !== null) {
         return user;
       }
 
       user = Users.get(function() {
-        user.bankaccounts = []; // TODO
-        user.permissions = []; // TODO
+        user.hasPermission = function(permission) {
+          return user.permissions.indexOf(permission) !== -1;
+        };
       });
 
       return user;

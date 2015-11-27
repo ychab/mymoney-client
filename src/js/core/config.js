@@ -19,11 +19,10 @@
     // Our endpoints URI need trailing slash, don't remove them.
     $resourceProvider.defaults.stripTrailingSlashes = false;
 
-    // TODO - review me: split it per modules?
     $routeProvider
       .when('/home', {
         template: '',
-        controller: 'HomeCtrl',
+        controller: 'HomeCtrl'
       })
       .when('/login', {
         templateUrl: SETTINGS.TEMPLATES_URL + 'login.html',
@@ -32,12 +31,26 @@
       })
       .when('/logout', {
         template: '',
-        controller: 'LogoutCtrl',
+        controller: 'LogoutCtrl'
+      })
+      // Bank accounts
+      .when('/bankaccounts/list', {
+        templateUrl: SETTINGS.TEMPLATES_URL + 'bankaccounts/list.html',
+        controller: 'BankAccountListCtrl',
+        controllerAs: 'bankAccountList'
+      })
+      .when('/bankaccounts/add', {
+        templateUrl: SETTINGS.TEMPLATES_URL + 'bankaccounts/create.html',
+        controller: 'BankAccountCreateCtrl',
+        controllerAs: 'bankAccountCreate'
+      })
+      .when('/bankaccounts/:bankaccountId', {
+        templateUrl: SETTINGS.TEMPLATES_URL + 'bankaccounts/detail.html',
+        controller: 'BankAccountDetailCtrl',
+        controllerAs: 'bankAccountDetail'
       })
       .otherwise({
         redirectTo: '/home'
       });
-
-    // $locationProvider.html5Mode( true ); // TODO
   }
 })();

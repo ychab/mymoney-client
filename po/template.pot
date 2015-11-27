@@ -4,24 +4,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
+#: pager.html:12
+msgid "(current)"
+msgstr ""
+
 #: menu_actions.html:3
 msgid "Actions"
+msgstr ""
+
+#: bankaccounts/bankaccounts.js:17
+msgid "Add"
 msgstr ""
 
 #: menu_primary.html:8
 msgid "All bank accounts"
 msgstr ""
 
+#: bankaccounts/create.html:9
+msgid "Balance initial"
+msgstr ""
+
+#: bankaccounts/bankaccounts.js:12
+msgid "Bank accounts"
+msgstr ""
+
+#: core/services.js:77
+msgid "Calendar view"
+msgstr ""
+
+#: bankaccounts/bankaccounts.js:29
+msgid "Create a new bank account"
+msgstr ""
+
+#: bankaccounts/create.html:15
+msgid "Currency"
+msgstr ""
+
+#: core/services.js:45
+msgid "Edit"
+msgstr ""
+
+#: bankaccounts/create.html:4
+msgid "Label"
+msgstr ""
+
 #: login.html:25
+#: user/user.js:12
 msgid "Log in"
 msgstr ""
 
 #: menu_user.html:9
 msgid "Log out"
-msgstr ""
-
-#: user/user.js:13
-msgid "Login in"
 msgstr ""
 
 #: menu_primary.html:4
@@ -32,13 +65,57 @@ msgstr ""
 msgid "My tags"
 msgstr ""
 
+#: pager.html:16
+msgid "Next"
+msgstr ""
+
 #: login.html:15
 #: login.html:21
 msgid "Password"
 msgstr ""
 
+#: pager.html:6
+msgid "Previous"
+msgstr ""
+
+#: bankaccounts/create.html:22
+msgid "Save"
+msgstr ""
+
+#: core/services.js:54
+msgid "Schedule"
+msgstr ""
+
+#: core/services.js:36
+msgid "See"
+msgstr ""
+
+#: bankaccounts/create.html:17
+msgid "Select a currency"
+msgstr ""
+
+#: core/services.js:60
+msgid "Statistics"
+msgstr ""
+
+#: core/services.js:72
+msgid "Table view"
+msgstr ""
+
 #: menu_primary.html:17
 msgid "Tags"
+msgstr ""
+
+#: bankaccounts/bankaccounts.js:34
+msgid "The bank account has been created successfully."
+msgstr ""
+
+#: bankaccounts/create.html:11
+msgid "The initial balance will automatically update the balance."
+msgstr ""
+
+#: bankaccounts/list.html:6
+msgid "There is no bank account yet."
 msgstr ""
 
 #: login.html:10
