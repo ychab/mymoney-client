@@ -1,5 +1,5 @@
 <div class="list-group bankaccount-list">
-  <a data-ng-repeat="bankaccount in main.user().bankaccounts track by bankaccount.id" data-ng-href="#/bankaccount/{{ bankaccount.id }}" class="list-group-item">
+  <a data-ng-repeat="bankaccount in main.user().bankaccounts track by bankaccount.id" data-ng-href="#/bankaccounts/{{ bankaccount.id }}" class="list-group-item">
     <span class="badge">{{ bankaccount.balance_view }}</span>
     {{ bankaccount.label }}
   </a>

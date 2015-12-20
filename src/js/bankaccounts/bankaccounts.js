@@ -28,8 +28,8 @@
 
     Page.setTitle(gettext('Create a new bank account'));
 
-    function create(data) {
-      BankAccounts.save(data, function(bankaccount) {
+    function create() {
+      BankAccounts.save(vm.bankaccount, function(bankaccount) {
         Page.addMessage(
           gettext('The bank account has been created successfully.'),
           'success'

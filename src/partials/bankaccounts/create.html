@@ -1,19 +1,19 @@
-<form novalidate data-ng-submit="bankAccountCreate.create(bankaccount)">
+<form novalidate data-ng-submit="bankAccountCreate.create()">
 
   <div data-ng-class="{'form-group': true, 'has-error': main.page.messages['danger']['label']}">
     <label class="control-label" for="label">{{ 'Label'|translate }}<span class="required">*</span></label>
-    <input type="text" data-ng-model="bankaccount.label" id="label" maxlength="255" class="form-control" required>
+    <input type="text" data-ng-model="bankAccountCreate.bankaccount.label" id="label" maxlength="255" class="form-control" required>
   </div>
 
   <div data-ng-class="{'form-group': true, 'has-error': main.page.messages['danger']['balance_initial']}">
     <label class="control-label" for="balance_initial">{{ 'Balance initial'|translate }}<span class="required">*</span></label>
-    <input type="number" data-ng-model="bankaccount.balance_initial" value="0" step="0.01" id="balance_initial" class="form-control" required>
+    <input type="number" data-ng-model="bankAccountCreate.bankaccount.balance_initial" value="0" step="0.01" id="balance_initial" class="form-control" required>
     <p class="help-block" translate>The initial balance will automatically update the balance.</p>
   </div>
 
   <div data-ng-class="{'form-group': true, 'has-error': main.page.messages['danger']['currency']}">
     <label class="control-label" for="currency">{{ 'Currency'|translate }}<span class="required">*</span></label>
-    <select data-ng-model="bankaccount.currency" id="currency" class="form-control" required>
+    <select data-ng-model="bankAccountCreate.bankaccount.currency" id="currency" class="form-control" required>
       <option value="">-- {{ 'Select a currency'|translate }} --</option>
       <option data-ng-repeat="currency in main.config.currencies" value="{{ currency.code }}">{{ currency.label }}</option>
     </select>
